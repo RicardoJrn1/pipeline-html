@@ -1,0 +1,32 @@
+name: CI/CD HTML
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-test-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
+      - name: Instalação de Dependências
+        run: echo "Nenhuma dependência necessária para HTML."
+
+      - name: Rodando testes
+        run: |
+          if [ -f "index.html" ]; then
+            echo "✅ index.html encontrado!"
+          else
+            echo "❌ index.html não existe!" && exit 1
+          fi
+
+      - name: Build do projeto
+        run: echo "Build simulado para projeto HTML."
+
+      - name: Deploy
+        run: echo "Deploy simulado com sucesso!"
